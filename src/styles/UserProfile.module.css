@@ -1,0 +1,14 @@
+.profileContainer {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .profileDetails {
+    margin-top: 20px;
+  }
+  
+  .profileDetails p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  

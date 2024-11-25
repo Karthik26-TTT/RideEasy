@@ -1,0 +1,164 @@
+/* General Container */
+.container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #4CAF50;
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* FAQ Section */
+.faqSection {
+  margin-bottom: 40px;
+}
+
+.faqItem {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faqItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.faqItem.active {
+  background-color: #f4f6f8;
+}
+
+.faqQuestion h3 {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.faqAnswer {
+  padding-top: 10px;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Contact Support Section */
+.contactSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.contactButtons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contactButton {
+  background-color: #007BFF;
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contactButton:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.contactButton:active {
+  transform: scale(0.98);
+}
+
+/* Chat Section */
+.chatSection {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f4f6f8;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.chatHistory {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding-right: 15px;
+}
+
+.chatMessage {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.chatInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  height: 80px;
+  resize: none;
+}
+
+.chatSubmitButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chatSubmitButton:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  .faqItem {
+    padding: 15px;
+  }
+  .contactButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .contactButton {
+    width: 100%;
+  }
+  .chatInput {
+    height: 60px;
+  }
+}

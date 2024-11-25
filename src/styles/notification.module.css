@@ -1,0 +1,82 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.notificationList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notification {
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.notification:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.notification .type {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.rideUpdate {
+  background-color: #f4f7f9;
+  border-left: 5px solid #4CAF50; /* Green for ride updates */
+}
+
+.promotionalOffer {
+  background-color: #fff3e0;
+  border-left: 5px solid #ff9800; /* Orange for promotional offers */
+}
+
+.alert {
+  background-color: #ffebee;
+  border-left: 5px solid #f44336; /* Red for alerts */
+}
+
+.systemMessage {
+  background-color: #e3f2fd;
+  border-left: 5px solid #2196F3; /* Blue for system messages */
+}
+
+.securityAlert {
+  background-color: #ede7f6;
+  border-left: 5px solid #673AB7; /* Purple for security alerts */
+}
+
+.read {
+  opacity: 0.6;
+}
+
+.readLabel {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  .notification {
+    padding: 10px;
+  }
+}

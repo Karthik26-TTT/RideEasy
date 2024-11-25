@@ -1,0 +1,142 @@
+/* General Styles */
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+  }
+  
+  .heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .paymentDetails {
+    margin-bottom: 20px;
+  }
+  
+  .paymentDetails h2,
+  .paymentDetails h3 {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .paymentDetails p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .paymentOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .paymentOption {
+    padding: 15px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .paymentOption:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+  }
+  
+  .selected {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .receiptDetails {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hidden, shown after payment confirmation */
+  }
+  
+  .receiptDetails.fadeIn {
+    display: block;
+    animation: fadeIn 1s ease;
+  }
+  
+  .downloadButton {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .downloadButton:hover {
+    background-color: #218838;
+  }
+  
+  .paymentButton {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .paymentButton.disabled {
+    background-color: #d6d6d6;
+    cursor: not-allowed;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      padding: 40px;
+    }
+  
+    .paymentButton {
+      width: 60%;
+    }
+  
+    .paymentOptions {
+      flex-direction: row;
+      gap: 20px;
+    }
+  
+    .paymentOption {
+      width: 25%;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  

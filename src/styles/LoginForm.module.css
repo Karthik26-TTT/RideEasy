@@ -1,0 +1,181 @@
+/* Center the form on the page */
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f6f8;
+  position: relative;
+  overflow: hidden;
+}
+
+.formCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  z-index: 2; /* Ensure the form is above the animations */
+}
+
+.formCard h1 {
+  font-size: 36px;
+  color: #4CAF50;
+  margin-bottom: 10px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.formCard p {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.formCard input {
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.formCard input:focus {
+  border-color: #4CAF50;
+}
+
+.formCard button {
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.formCard button:hover {
+  background-color: #45a049;
+}
+
+.formCard a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+/* Text Animation Section */
+.bikeCarAnimation {
+  position: absolute;
+  top: 10%; /* Place the animation text near the top */
+  left: -20%; /* Start off-screen */
+  animation: moveToCenter 3s ease-in-out forwards; /* Animation stops when it reaches the center horizontally */
+  z-index: 1; /* Behind the form */
+}
+
+.bikeCarAnimation .animationText {
+  font-size: 24px;
+  color: #4CAF50;
+  font-weight: bold;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Keyframes */
+@keyframes moveToCenter {
+  0% {
+    left: -20%;
+  }
+  50% {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  100% {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+
+/* Small screens (up to 600px) */
+@media (max-width: 600px) {
+  .formCard {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .formCard h1 {
+    font-size: 28px;
+  }
+
+  .formCard input {
+    padding: 10px;
+  }
+
+  .formCard button {
+    padding: 12px;
+  }
+
+  .bikeCarAnimation .animationText {
+    font-size: 16px;
+  }
+}
+
+/* Medium screens (600px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .formCard {
+    max-width: 500px;
+  }
+
+  .formCard h1 {
+    font-size: 32px;
+  }
+
+  .formCard input {
+    padding: 12px;
+  }
+
+  .formCard button {
+    padding: 14px;
+  }
+
+  .bikeCarAnimation .animationText {
+    font-size: 20px;
+  }
+}
+
+/* Large screens (1025px and up) */
+@media (min-width: 1025px) {
+  .formCard {
+    max-width: 600px;
+  }
+
+  .formCard h1 {
+    font-size: 36px;
+  }
+
+  .formCard input {
+    padding: 15px;
+  }
+
+  .formCard button {
+    padding: 15px;
+  }
+
+  .bikeCarAnimation .animationText {
+    font-size: 24px;
+  }
+}
