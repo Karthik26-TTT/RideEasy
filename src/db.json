@@ -1,64 +1,15 @@
 {
   "users": [
     {
-      "username": "sfghj",
-      "password": "fghj",
-      "id": 1
-    },
-    {
-      "username": "sfghj",
-      "password": "fghj",
-      "id": 2
-    },
-    {
-      "username": "kart",
-      "password": "12",
-      "id": 3
-    },
-    {
-      "username": "sfghj",
-      "password": "fghj",
-      "id": 4
-    },
-    {
-      "username": "ka",
-      "password": "12",
-      "id": 5
-    },
-    {
-      "username": "karthik",
-      "password": "1",
-      "id": 6
-    },
-    {
+      "id": "5fa2",
       "username": "k",
-      "password": "1",
-      "id": 7
+      "password": "1"
     },
     {
-      "username": "l",
-      "password": "1",
-      "id": 8
-    },
-    {
-      "username": "shiva",
-      "password": "1",
-      "id": 9
-    },
-    {
-      "username": "o",
-      "password": "0",
-      "id": 10
-    },
-    {
-      "username": "n",
-      "password": "1",
-      "id": 11
-    },
-    {
-      "username": "sfghj",
-      "password": "fghj",
-      "id": 12
+      "id": "4c08",
+      "email": "sudhakarthik2000@gmail.com",
+      "username": "kk",
+      "password": "11"
     }
   ]
 }

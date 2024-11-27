@@ -4,19 +4,26 @@ import { toast } from "react-toastify";
 import styles from "../styles/SignupForm.module.css";
 
 function SignupForm() {
+  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSignup = async () => {
-    if (username && password) {
+    if (email && username && password && confirmPassword) {
+      if (password !== confirmPassword) {
+        toast.error("Passwords do not match!");
+        return;
+      }
+
       try {
         const response = await fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ username, password }),
+          body: JSON.stringify({ email, username, password }),
         });
 
         if (response.ok) {
@@ -38,6 +45,12 @@ function SignupForm() {
       <div className={styles.formCard}>
         <h1>RideEase</h1>
         <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
           type="text"
           placeholder="Username"
           value={username}
@@ -48,6 +61,12 @@ function SignupForm() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
         />
         <button onClick={handleSignup}>Sign Up</button>
         <p>

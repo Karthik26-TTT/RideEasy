@@ -12,7 +12,7 @@ const HelpSupport = () => {
     {
       question: "How do I book a ride?",
       answer:
-        "To book a ride, just enter your pick-up and drop-off locations, select your preferred ride option (Uber, Rapido, etc.), and confirm your ride.",
+        "To book a ride, just enter your pick-up and drop-off locations, select your preferred ride option (Auto,Car,Bike,etc) and confirm your ride.",
     },
     {
       question: "What should I do if I miss my ride?",
@@ -20,25 +20,11 @@ const HelpSupport = () => {
         "If you miss your ride, you can easily request a new one by clicking 'Rebook Ride'. Check for real-time updates on ride availability.",
     },
     {
-      question: "How do I cancel a ride?",
-      answer:
-        "To cancel a ride, go to the ride details page and click 'Cancel'. Be mindful of cancellation fees if the ride is canceled after a certain time.",
-    },
-    {
       question: "How do I update my payment method?",
       answer:
         "You can update your payment method by navigating to your profile settings and selecting 'Payment Methods'. Here, you can add or remove cards and link PayPal.",
     },
-    {
-      question: "Can I schedule a ride in advance?",
-      answer:
-        "Yes! You can schedule a ride in advance for up to 7 days by selecting the 'Schedule Ride' option when booking your ride.",
-    },
-    {
-      question: "What are Uber Rapido and other ride options?",
-      answer:
-        "Uber Rapido is a two-wheeled ride option for quicker and more affordable transport. You can also choose from other options like UberX, UberXL, and Comfort, depending on your needs.",
-    },
+  
   ];
 
   // Handle contact support actions

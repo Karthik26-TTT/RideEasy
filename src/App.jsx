@@ -27,6 +27,7 @@ import LoginForm from "./components/Login";
 import SignupForm from "./components/Signupform";
 import HomePage from "./pages/Home";
 import ResponsiveNavbar from "./components/Navbar";
+import Contactus from "./pages/Contactus";
 
 function App() {
   return (
@@ -100,6 +101,15 @@ function App() {
               <ProtectedRoute>
                     <ResponsiveNavbar/>
                 <UserProfile />
+              </ProtectedRoute>
+            }
+          />
+                 <Route
+            path="/contact"
+            element={
+              <ProtectedRoute>
+                    <ResponsiveNavbar/>
+                <Contactus />
               </ProtectedRoute>
             }
           />

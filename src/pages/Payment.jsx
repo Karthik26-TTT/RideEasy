@@ -5,7 +5,7 @@ import styles from "../styles/Payment.module.css";
 
 const Payment = () => {
   const [paymentMethod, setPaymentMethod] = useState("");
-  const [fareEstimate] = useState(15.99); // Simulated fare estimate
+  const [fareEstimate] = useState(159); // Simulated fare estimate in INR (₹)
   const [isPaid, setIsPaid] = useState(false);
 
   const handlePayment = () => {
@@ -16,13 +16,13 @@ const Payment = () => {
 
     // Simulate a successful payment process
     setIsPaid(true);
-    toast.success(`Payment successful via ${paymentMethod}!`)
+    toast.success(`Payment successful via ${paymentMethod}!`);
   };
 
   const generateReceipt = () => {
     const doc = new jsPDF();
     doc.text("Receipt", 20, 20);
-    doc.text(`Fare Estimate: $${fareEstimate.toFixed(2)}`, 20, 30);
+    doc.text(`Fare Estimate: ₹${fareEstimate.toFixed(2)}`, 20, 30);
     doc.text(`Payment Method: ${paymentMethod}`, 20, 40);
     doc.text(`Status: Paid`, 20, 50);
     doc.save("receipt.pdf"); // Save the PDF
@@ -34,13 +34,13 @@ const Payment = () => {
 
       <div
         className={`${styles.paymentDetails} ${
-          isPaid ? styles.paymentConfirmed : "" 
+          isPaid ? styles.paymentConfirmed : ""
         }`}
       >
         <h2>Fare Estimate</h2>
         <p>
           Your total fare estimate is:{" "}
-          <strong>${fareEstimate.toFixed(2)}</strong>
+          <strong>₹{fareEstimate.toFixed(2)}</strong>
         </p>
 
         <h3>Select Payment Method</h3>
@@ -83,7 +83,7 @@ const Payment = () => {
           <div className={`${styles.receiptDetails} ${styles.fadeIn}`}>
             <h2>Receipt</h2>
             <p>
-              <strong>Fare:</strong> ${fareEstimate.toFixed(2)}
+              <strong>Fare:</strong> ₹{fareEstimate.toFixed(2)}
             </p>
             <p>
               <strong>Payment Method:</strong> {paymentMethod}
