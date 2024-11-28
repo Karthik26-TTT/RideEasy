@@ -1,6 +1,19 @@
-
+import { useState } from "react";
 
 const Contactus = () => {
+  const [showTicketForm, setShowTicketForm] = useState(false); // State to toggle between forms
+  const [query, setQuery] = useState(""); // State to manage the query input
+  const [isSubmitted, setIsSubmitted] = useState(false); // State to show success message
+
+  const handleSubmitTicket = () => {
+    if (query.trim()) {
+      setIsSubmitted(true);
+      // Handle ticket submission (e.g., API call or similar)
+      setQuery("")
+      
+    }
+  };
+
   const cardStyle = {
     maxWidth: "500px",
     margin: "auto",
@@ -65,60 +78,75 @@ const Contactus = () => {
     <div style={{ padding: "50px 15px" }}>
       <h1 style={headingStyle}>Contact Us</h1>
 
-      <div style={cardStyle}>
-        <h2 style={sectionTitleStyle}>Customer Support</h2>
-        <p style={textStyle}>
-          If you have any questions or need assistance, feel free to contact us.
-        </p>
+      {/* Conditional rendering based on the state of showTicketForm */}
+      {!showTicketForm ? (
+        <div style={cardStyle}>
+          <h2 style={sectionTitleStyle}>Customer Support</h2>
+          <p style={textStyle}>
+            If you have any questions or need assistance, feel free to contact us.
+          </p>
 
-        <p
-          style={contactInfoStyle}
-          onClick={() => window.location.href = "tel:+911234567890"} // Opens the phone dialer
-        >
-          Phone: +91 123 456 7890
-        </p>
-        
-        <p
-          style={contactInfoStyle}
-          onClick={() => window.location.href = "mailto:support@rideease.com"} // Opens default email client
-        >
-          Email: support@rideease.com
-        </p>
+          <p
+            style={contactInfoStyle}
+            onClick={() => window.location.href = "tel:+911234567890"}
+          >
+            Phone: +91 123 456 7890
+          </p>
 
-        {/* Button with hover effect */}
-        <button
-          style={buttonStyle}
-          onMouseOver={(e) => (e.target.style.backgroundColor = buttonHoverStyle.backgroundColor)}
-          onMouseOut={(e) => (e.target.style.backgroundColor = "#28a745")}
-        >
-          Submit a Ticket
-        </button>
-      </div>
+          <p
+            style={contactInfoStyle}
+            onClick={() => window.location.href = "mailto:support@rideease.com"}
+          >
+            Email: support@rideease.com
+          </p>
 
-      {/* Responsive Styles */}
-      <style>
-        {`
-          @media screen and (max-width: 768px) {
-            h1 {
-              font-size: 1.5rem;
-            }
-            .contact-card {
-              padding: 20px;
-            }
-          }
-          @media screen and (max-width: 480px) {
-            h1 {
-              font-size: 1.2rem;
-            }
-            .contact-card {
-              padding: 15px;
-            }
-            .contact-info {
-              font-size: 1rem;
-            }
-          }
-        `}
-      </style>
+          <button
+            style={buttonStyle}
+            onMouseOver={(e) => (e.target.style.backgroundColor = buttonHoverStyle.backgroundColor)}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#28a745")}
+            onClick={() => setShowTicketForm(true)} // Show the ticket form when clicked
+          >
+            Submit a Ticket
+          </button>
+        </div>
+      ) : (
+        // Ticket Details Form
+        <div style={cardStyle}>
+          <h2 style={sectionTitleStyle}>Enter Your Query</h2>
+
+          <textarea
+            style={{
+              width: "100%",
+              height: "150px",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+              fontSize: "1rem",
+              marginBottom: "20px",
+            }}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Describe your issue or question"
+            
+          />
+
+          <button
+            style={buttonStyle}
+            onMouseOver={(e) => (e.target.style.backgroundColor = buttonHoverStyle.backgroundColor)}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#28a745")}
+            onClick={handleSubmitTicket}
+          >
+            Submit Ticket
+          </button>
+
+          {isSubmitted && (
+            <div style={{ marginTop: "20px", color: "#28a745" }}>
+              <p>Your query has been successfully submitted! We will get back to you shortly.</p>
+            </div>
+         
+          )}
+        </div>
+      )}
     </div>
   );
 };

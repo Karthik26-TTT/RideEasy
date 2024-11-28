@@ -18,7 +18,7 @@ const RideBooking = () => {
     { type: "Bike", pricePerKm: 5, eta: "3 min", image: bike },
     { type: "Car", pricePerKm: 15, eta: "8 min", image: car },
     { type: "Auto", pricePerKm: 10, eta: "5 min", image: auto },
-    { type: "Parcel", pricePerKm: 20, eta: "15 min", image: p }, // Add Parcel option
+    { type: "Parcel", pricePerKm: 20, eta: "15 min", image: p },
   ];
 
   const handleVehicleSelect = (vehicle) => {
@@ -41,7 +41,7 @@ const RideBooking = () => {
       // Automatically hide the confirmation popup after 3 seconds
       setTimeout(() => {
         setIsBookingConfirmed(false);
-      }, 3000);
+      }, 2000);
     }
   };
 
@@ -65,6 +65,16 @@ const RideBooking = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>Ride & Parcel Booking</h1>
+
+      {/* Back Arrow */}
+      {step > 1 && (
+        <button
+          className={styles.backArrow}
+          onClick={() => setStep((prev) => prev - 1)}
+        >
+          ⬅ Back
+        </button>
+      )}
 
       {/* Step 1: Vehicle/Parcel Selection */}
       {step === 1 && (
@@ -134,9 +144,9 @@ const RideBooking = () => {
         </form>
       )}
 
-      {/* Confirmation Popup */}
-      {isBookingConfirmed && (
-        <div className={styles.popup}>
+      {/* Confirmation Message below the button */}
+      {confirmation && (
+        <div className={styles.confirmationMessage}>
           <p>{confirmation}</p>
         </div>
       )}

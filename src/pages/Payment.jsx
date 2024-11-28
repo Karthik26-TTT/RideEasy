@@ -5,8 +5,9 @@ import styles from "../styles/Payment.module.css";
 
 const Payment = () => {
   const [paymentMethod, setPaymentMethod] = useState("");
-  const [fareEstimate] = useState(159); // Simulated fare estimate in INR (₹)
+  const [fareEstimate] = useState(18); // Simulated fare estimate in INR (₹)
   const [isPaid, setIsPaid] = useState(false);
+  const [isReceiptDownloaded, setIsReceiptDownloaded] = useState(false);
 
   const handlePayment = () => {
     if (!paymentMethod) {
@@ -22,11 +23,17 @@ const Payment = () => {
   const generateReceipt = () => {
     const doc = new jsPDF();
     doc.text("Receipt", 20, 20);
-    doc.text(`Fare Estimate: ₹${fareEstimate.toFixed(2)}`, 20, 30);
+    
+    // Improved formatting for the fare with clear rupee symbol
+    doc.text(`Fare Estimate: $${fareEstimate.toFixed(2)}`, 20, 30);
     doc.text(`Payment Method: ${paymentMethod}`, 20, 40);
     doc.text(`Status: Paid`, 20, 50);
     doc.save("receipt.pdf"); // Save the PDF
+  
+    // Disable the payment method selection after the receipt is downloaded
+    setIsReceiptDownloaded(true);
   };
+  
 
   return (
     <div className={styles.container}>
@@ -40,7 +47,7 @@ const Payment = () => {
         <h2>Fare Estimate</h2>
         <p>
           Your total fare estimate is:{" "}
-          <strong>₹{fareEstimate.toFixed(2)}</strong>
+          <strong>${fareEstimate.toFixed(2)}</strong>
         </p>
 
         <h3>Select Payment Method</h3>
@@ -49,7 +56,7 @@ const Payment = () => {
             className={`${styles.paymentOption} ${
               paymentMethod === "Credit Card" ? styles.selected : ""
             }`}
-            onClick={() => setPaymentMethod("Credit Card")}
+            onClick={() => !isReceiptDownloaded && setPaymentMethod("Credit Card")}
           >
             <p>Credit Card</p>
           </div>
@@ -57,7 +64,7 @@ const Payment = () => {
             className={`${styles.paymentOption} ${
               paymentMethod === "Debit Card" ? styles.selected : ""
             }`}
-            onClick={() => setPaymentMethod("Debit Card")}
+            onClick={() => !isReceiptDownloaded && setPaymentMethod("Debit Card")}
           >
             <p>Debit Card</p>
           </div>
@@ -65,7 +72,7 @@ const Payment = () => {
             className={`${styles.paymentOption} ${
               paymentMethod === "PayPal" ? styles.selected : ""
             }`}
-            onClick={() => setPaymentMethod("PayPal")}
+            onClick={() => !isReceiptDownloaded && setPaymentMethod("PayPal")}
           >
             <p>PayPal</p>
           </div>
@@ -73,17 +80,17 @@ const Payment = () => {
             className={`${styles.paymentOption} ${
               paymentMethod === "Cash" ? styles.selected : ""
             }`}
-            onClick={() => setPaymentMethod("Cash")}
+            onClick={() => !isReceiptDownloaded && setPaymentMethod("Cash")}
           >
             <p>Cash</p>
           </div>
         </div>
 
-        {isPaid && (
+        {isPaid && !isReceiptDownloaded && (
           <div className={`${styles.receiptDetails} ${styles.fadeIn}`}>
             <h2>Receipt</h2>
             <p>
-              <strong>Fare:</strong> ₹{fareEstimate.toFixed(2)}
+              <strong>Fare:</strong> ${fareEstimate.toFixed(2)}
             </p>
             <p>
               <strong>Payment Method:</strong> {paymentMethod}
@@ -91,18 +98,23 @@ const Payment = () => {
             <p>
               <strong>Status:</strong> Paid
             </p>
-            <button className={styles.downloadButton} onClick={generateReceipt}>
+            <button
+              className={styles.downloadButton}
+              onClick={generateReceipt}
+            >
               Download Receipt
             </button>
           </div>
         )}
 
         <button
-          className={`${styles.paymentButton} ${isPaid ? styles.disabled : ""}`}
+          className={`${styles.paymentButton} ${
+            isPaid && !isReceiptDownloaded ? styles.disabled : ""
+          }`}
           onClick={handlePayment}
-          disabled={isPaid}
+          disabled={isPaid || isReceiptDownloaded}
         >
-          {isPaid ? "Payment Completed" : "Confirm Payment"}
+          {isPaid ? "Done" : "Confirm "}
         </button>
       </div>
     </div>

@@ -8,6 +8,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   animation: slideIn 1s ease-out;
+  margin-top: 50px;
 }
 
 .heading {
@@ -54,12 +55,12 @@
 }
 
 .selected {
-  background-color: #007bff;
+  background-color: #bfd3e8;
   color: white;
 }
 
 .selected:hover {
-  background-color: #0062cc; /* Keep the hover effect for the selected option */
+  background-color: #bcc6d0; /* Keep the hover effect for the selected option */
 }
 
 .receiptDetails {
@@ -100,7 +101,8 @@
   transition: background-color 0.3s ease;
   margin: 10px;
   position: relative;
-  margin-left: 120px;
+  margin-left: 130px;
+
 }
 
 .paymentButton.disabled {
@@ -113,7 +115,7 @@
   background-color: #218838;
   margin: 10px;
   position: relative;
-  margin-left: 120px;
+  margin-left: 130px;
 }
 
 .paymentButton:not(:disabled) {

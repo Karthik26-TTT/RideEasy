@@ -24,23 +24,19 @@ const HelpSupport = () => {
       answer:
         "You can update your payment method by navigating to your profile settings and selecting 'Payment Methods'. Here, you can add or remove cards and link PayPal.",
     },
-  
   ];
 
   // Handle contact support actions
   const handleSupportContact = (method) => {
     if (method === "phone") {
-      // Trigger phone dialer (works on mobile)
       window.location.href = "tel:+1234567890"; // Replace with actual phone number
       toast.info("Calling customer support...");
     } else if (method === "email") {
-      // Open the default email client with a pre-filled subject and body
       window.location.href =
         "mailto:support@rideease.com?subject=Support Request";
       toast.info("Opening email client...");
     } else if (method === "chat") {
-      // Toggle chat interface
-      setIsChatOpen(!isChatOpen)
+      setIsChatOpen(!isChatOpen);
     }
   };
 
@@ -130,5 +126,6 @@ const HelpSupport = () => {
     </div>
   );
 };
+
 
 export default HelpSupport;

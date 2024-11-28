@@ -224,3 +224,16 @@
     padding: 8px 12px;
   }
 }
+
+
+/* Confirmation Message Below the Button */
+.confirmationMessage {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: green;
+  padding: 10px;
+  background-color: #d4edda;
+  border-radius: 5px;
+  border: 1px solid #c3e6cb;
+}

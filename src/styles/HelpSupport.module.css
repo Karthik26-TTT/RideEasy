@@ -44,8 +44,10 @@
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Highlight active FAQ item */
 .faqItem.active {
   background-color: #f4f6f8;
+  border-color: #4CAF50;
 }
 
 .faqQuestion h3 {
@@ -59,6 +61,7 @@
   font-size: 1rem;
   color: #555;
   line-height: 1.6;
+  margin-top: 10px;
 }
 
 /* Contact Support Section */
