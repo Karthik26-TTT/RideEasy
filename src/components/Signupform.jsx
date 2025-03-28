@@ -10,31 +10,19 @@ function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSignup = async () => {
+  const handleSignup = () => {
     if (email && username && password && confirmPassword) {
       if (password !== confirmPassword) {
         toast.error("Passwords do not match!");
         return;
       }
 
-      try {
-        const response = await fetch("http://localhost:5000/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, username, password }),
-        });
+      // Store user details in localStorage
+      const userDetails = { email, username, password };
+      localStorage.setItem("userDetails", JSON.stringify(userDetails));
 
-        if (response.ok) {
-          toast.success("Signup successful! Please log in.");
-          navigate("/");
-        } else {
-          toast.error("Error occurred while signing up.");
-        }
-      } catch (error) {
-        toast.error("An error occurred: " + error.message);
-      }
+      toast.success("Signup successful! Please log in.");
+      navigate("/"); // Navigate to the login page
     } else {
       toast.error("Please fill out all fields.");
     }

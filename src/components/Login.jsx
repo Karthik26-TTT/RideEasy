@@ -8,39 +8,19 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/users");
-
-      if (!response.ok) {
-        const errorDetails = await response.text();
-        console.error("Server Error Details:", errorDetails);
-        toast.error("Unexpected response from server. Please try again later.");
-        return;
-      }
-
-      const users = await response.json();
-
-      if (!Array.isArray(users)) {
-        console.error("Unexpected server response format:", users);
-        toast.error("Invalid server response. Please contact support.");
-        return;
-      }
-
-      const user = users.find(
-        (u) => u.username === username && u.password === password
-      );
-
-      if (user) {
+  const handleLogin = () => {
+    const storedUser = localStorage.getItem("userDetails");
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      if (user.username === username && user.password === password) {
         localStorage.setItem("username", username);
         toast.success("Login successful! Redirecting to Home...");
         navigate("/home");
       } else {
         toast.error("Invalid credentials! Please try again.");
       }
-    } catch (error) {
-      console.error("Error during login:", error);
-      toast.error("An error occurred: " + error.message);
+    } else {
+      toast.error("No user found. Please sign up first.");
     }
   };
 
